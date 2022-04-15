@@ -1,9 +1,13 @@
-import Header from "../components/Header"
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const HomePage = () => {
   return (
-    <Header />
-  )
-}
+    <>
+      <Header />
+      <Footer />
+    </>
+  );
+};
 
-export default HomePage
+export default HomePage;
