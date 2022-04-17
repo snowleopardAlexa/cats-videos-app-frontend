@@ -10,7 +10,7 @@ function App() {
         <Header />
          <Routes>
            <Route path="/" element={<HomePage />} />
-           <Route path="/videodetail" element={<VideoDetail />} />
+           <Route path="/videodetail/:slug" element={<VideoDetail />} />
          </Routes>
          <Footer />
     </div>

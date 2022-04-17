@@ -1,7 +1,12 @@
+import { useParams } from 'react-router-dom'
+
 const VideoDetail = () => {
+
+  const { slug } = useParams()
+
   return (
     <div>
-      <h2>video</h2>
+     <h2>Video Details - { slug } </h2>
     </div>
   )
 }
