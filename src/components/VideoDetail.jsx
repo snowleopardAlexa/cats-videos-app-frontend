@@ -1,6 +1,8 @@
 const VideoDetail = () => {
   return (
-    <div>VideoDetail</div>
+    <div>
+      <h2>video</h2>
+    </div>
   )
 }
 

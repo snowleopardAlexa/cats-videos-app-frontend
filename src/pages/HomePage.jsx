@@ -10,15 +10,17 @@ export default function HomePage() {
   return (
     <> 
      <h2 className="text-5xl mt-8 text-center font-Bebas">Cats Videos</h2>
+    <div className="grid grid-cols-2 gap-4">
      {data.map(video => (
-       <VideoCard 
-         key={video.id}
-         image={video.image}
-         year={video.year}
-         title={video.title}
-         body={video.body}
+        <VideoCard
+          key={video.id}
+          image={video.image}
+          year={video.year}
+          title={video.title}
+          body={video.body}
        />
     ))}
+ </div>
     </>
   )
 }
