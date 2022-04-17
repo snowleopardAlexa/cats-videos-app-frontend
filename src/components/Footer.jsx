@@ -4,8 +4,8 @@ import logo from '../img/cat-logo.svg'
 const Footer = () => {
   return (
     <div>
-      <footer class="mt-8 p-4 bg-teal-600 shadow md:px-6 md:py-8">
-        <div class="grid place-items-center">
+      <footer className="mt-8 p-4 bg-teal-600 shadow md:px-6 md:py-8">
+        <div className="grid place-items-center">
           <Link to="/" className="text-center">
             <img
               className="ml-2 md:ml-0 rounded-[52px] cursor-pointer"
@@ -16,8 +16,8 @@ const Footer = () => {
             />
           </Link>
         </div>
-        <hr class="my-6 border-white sm:mx-auto lg:my-8" />
-        <span class="block text-sm text-white sm:text-center">
+        <hr className="my-6 border-white sm:mx-auto lg:my-8" />
+        <span className="block text-sm text-white sm:text-center">
           © 2022{" "}
           <Link to="/" className="hover:underline">
             Cats Videos App

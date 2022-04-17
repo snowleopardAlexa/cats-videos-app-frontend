@@ -13,7 +13,7 @@ const Header = () => {
             height="80px"
             alt="cat logo"
           />
-          <span class="ml-4 mt-3 font-Bebas self-center text-3xl md:text-4xl font-semibold whitespace-nowrap dark:text-white">
+          <span className="ml-4 mt-3 font-Bebas self-center text-3xl md:text-4xl font-semibold whitespace-nowrap dark:text-white">
             Cats Videos App
           </span>
         </Link>
