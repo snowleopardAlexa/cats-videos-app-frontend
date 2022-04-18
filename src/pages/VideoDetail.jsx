@@ -8,6 +8,7 @@ import {FaCat} from 'react-icons/fa'
 
 const VideoDetail = () => {
   const [like, setLike] = useState(true)
+  const [count, setCount] = useState(0)
   const { slug } = useParams();
   const { loading, error, data } = useFetch(
     "http://localhost:1337/videos/" + slug
@@ -43,17 +44,17 @@ const VideoDetail = () => {
             <h3 className="text-gray-700">I am a cat and I demand a like!</h3>
             <span onClick={() => setLike((prevLike) => !prevLike)}>
             {like ? (
-            <img src={catnotcool} className="w-16 mx-auto mt-4" alt="cat-like" />
+            <img onClick={() => setCount(count + 1)} src={catnotcool} className="w-16 mx-auto mt-4" alt="cat-like" />
             ) : (
-            <img src={catcool} className="w-16 mx-auto mt-4" alt="cat-not-like" />
+            <img onClick={() => setCount(count - 1)} src={catcool} className="w-16 mx-auto mt-4" alt="cat-not-like" />
             )}  
             </span>
-            <p className="text-center mt-2">1</p>
+            <p className="text-center mt-2">Likes: {count}</p>
           </div>
           {/* edit video */}
           <div className="ml-8">
             <h3 className="text-gray-700">
-              Likewise, do it better! Edit my video!
+              No like?! Do it better! Edit my video!
             </h3>
             <span>
               <img
