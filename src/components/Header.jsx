@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import logo from '../img/cat-logo.svg'
+import logo from "../img/cat-logo.svg";
 
 const Header = () => {
   return (
-    <nav className="bg-teal-600 sm:px-4 py-2.5">
+    <nav className="fixed w-full z-10 top-0 bg-gradient-to-t from-orange-500 to-sky-400 py-2.5">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link to="/" className="flex items-center">
           <img
@@ -18,11 +18,16 @@ const Header = () => {
           </span>
         </Link>
         <div>
-            <ul className="md:flex flex-col">
-                <li>
-                    <Link to="/" className="text-white block pr-4 mt-2 md:pr-0 text-1xl md:text-2xl font-Lato font-bold hover:text-yellow-500">Home</Link>
-                </li>
-            </ul>
+          <ul className="md:flex flex-col">
+            <li>
+              <Link
+                to="/"
+                className="text-white block pr-4 mt-2 md:pr-0 text-1xl md:text-2xl font-Lato font-bold hover:text-yellow-500"
+              >
+                Home
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>

@@ -4,7 +4,7 @@ import logo from '../img/cat-logo.svg'
 const Footer = () => {
   return (
     <div>
-      <footer className="mt-8 p-4 bg-teal-600 shadow md:px-6 md:py-8">
+      <footer className="mt-8 p-4 bg-gradient-to-t from-orange-400 to-sky-400 shadow md:px-6 md:py-8">
         <div className="grid place-items-center">
           <Link to="/" className="text-center">
             <img
