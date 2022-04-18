@@ -1,9 +1,13 @@
-import { useParams } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
-import catcool from "../img/cat-cool.png";
-import videoedit from "../img/video-edit.png";
+import { useState } from "react"
+import { useParams } from "react-router-dom"
+import useFetch from "../hooks/useFetch"
+import catcool from "../img/cat-cool.png"
+import catnotcool from "../img/cat-not-cool.png"
+import videoedit from "../img/video-edit.png"
+import {FaCat} from 'react-icons/fa'
 
 const VideoDetail = () => {
+  const [like, setLike] = useState(true)
   const { slug } = useParams();
   const { loading, error, data } = useFetch(
     "http://localhost:1337/videos/" + slug
@@ -34,17 +38,15 @@ const VideoDetail = () => {
           <p className="text-xl">{data.body}</p>
         </div>
         <div className="mt-4 mb-8 flex flex-row justify-center">
-          {/* like */}
+          {/* like button */}
           <div className="mr-4">
             <h3 className="text-gray-700">I am a cat and I demand a like!</h3>
-            <span>
-              <img
-                className="mt-4 mx-auto"
-                src={catcool}
-                width="60px"
-                height="60px"
-                alt="cat-like"
-              />
+            <span onClick={() => setLike((prevLike) => !prevLike)}>
+            {like ? (
+            <img src={catnotcool} className="w-16 mx-auto mt-4" alt="cat-like" />
+            ) : (
+            <img src={catcool} className="w-16 mx-auto mt-4" alt="cat-not-like" />
+            )}  
             </span>
             <p className="text-center mt-2">1</p>
           </div>
@@ -55,6 +57,7 @@ const VideoDetail = () => {
             </h3>
             <span>
               <img
+                data-modal-toggle="defaultModal"
                 className="mt-4 mx-auto"
                 src={videoedit}
                 width="60px"
