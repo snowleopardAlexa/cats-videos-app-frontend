@@ -77,7 +77,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/snowleopardAlexa/instagram-clone.git
+   git clone https://github.com/snowleopardAlexa/cats-video-app.git
    ```
 2. Install NPM packages
    ```sh
