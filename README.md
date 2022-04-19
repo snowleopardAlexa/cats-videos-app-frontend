@@ -57,7 +57,8 @@
 <!-- ABOUT THE PROJECT -->
 ## Cats Videos App
 
-![Alt text](src/img/cats-videos-app.png?raw=true "Cats Videos App") https://
+![Alt text](src/img/cats-videos-app.png?raw=true "Cats Videos App")
+![Alt text](src/img/video.png?raw=true "Cats Videos App") https://
 
 ### Built With
 
