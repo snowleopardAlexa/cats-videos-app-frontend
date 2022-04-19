@@ -1,15 +1,30 @@
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      padding: { "fluid-video": "56.25%" },
       fontFamily: {
-        Roboto: ['Roboto', 'sans-serif'],
-        Bebas: ['Bebas Neue', 'cursive'],
-        Lato: ['Lato', 'sans-serif']
-      }
+        Roboto: ["Roboto", "sans-serif"],
+        Bebas: ["Bebas Neue", "cursive"],
+        Lato: ["Lato", "sans-serif"],
+        Fascinate: ["Fascinate", "cursive"],
+      },
+      keyframes: {
+        "fade-in-down": {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+      },
+      animation: {
+        "fade-in-down": "fade-in-down 0.5s ease-out",
+      },
     },
   },
   plugins: [],
-}
+};
