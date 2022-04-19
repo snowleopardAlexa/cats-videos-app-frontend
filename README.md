@@ -14,14 +14,14 @@
     This is a front-end for cats-videos-app. For right now you can see multiple videos of cats displayed on the screen and when you click on WATCH NOW button
     you can see a single video card. You can play the video. You can also like and unlike video. When you clik on the icon video edit - a modal will pop up. A functionality EDIT will be implemented next. 
     <br />
-    <a href="https://github.com/snowleopardAlexa/instagram-clone"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/snowleopardAlexa/cats-videos-app"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="">View Demo</a>
     ·
-    <a href="https://github.com/snowleopardAlexa/cats-video-app-frontend/issues">Report Bug</a>
+    <a href="https://github.com/snowleopardAlexa/cats-videos-app-frontend/issues">Report Bug</a>
     ·
-    <a href="https://github.com/snowleopardAlexa/cats-video-app-frontend/issues">Request Feature</a>
+    <a href="https://github.com/snowleopardAlexa/cats-videos-app-frontend/issues">Request Feature</a>
   </p>
 </div>
 
@@ -57,7 +57,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Cats Videos App
 
-![Alt text](src/img/cats-videos-app.png?raw=true "Cats Videos App") https://instagram-clone-snowleopardalexa.vercel.app/
+![Alt text](src/img/cats-videos-app.png?raw=true "Cats Videos App") https://
 
 ### Built With
 
@@ -77,7 +77,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/snowleopardAlexa/cats-video-app.git
+   git clone https://github.com/snowleopardAlexa/cats-videos-app.git
    ```
 2. Install NPM packages
    ```sh
