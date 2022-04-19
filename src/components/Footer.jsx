@@ -8,16 +8,14 @@ const Footer = () => {
         <div className="grid place-items-center">
           <Link to="/" className="text-center">
             <img
-              className="ml-2 md:ml-0 rounded-[52px] cursor-pointer"
+              className="w-18 md: ml-2 md:ml-0 rounded-[52px] cursor-pointer"
               src={logo}
-              width="100px"
-              height="100px"
               alt="cat logo"
             />
           </Link>
         </div>
         <hr className="my-6 border-white sm:mx-auto lg:my-8" />
-        <span className="block text-sm text-white sm:text-center">
+        <span className="block text-sm text-white text-center">
           © 2022{" "}
           <Link to="/" className="hover:underline">
             Cats Videos App
