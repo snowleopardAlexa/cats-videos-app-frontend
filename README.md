@@ -12,7 +12,7 @@
 
   <p align="center">
     This is a front-end for cats-videos-app. For right now you can see multiple videos of cats displayed on the screen and when you click on WATCH NOW button
-    you can see single video. You can play the video. You can also like and unlike video. 
+    you can see a single video card. You can play the video. You can also like and unlike video. When you clik on the icon video edit - a modal will pop up. A functionality EDIT will be implemented next. 
     <br />
     <a href="https://github.com/snowleopardAlexa/instagram-clone"><strong>Explore the docs »</strong></a>
     <br />
