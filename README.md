@@ -5,10 +5,10 @@
 <br />
 <div align="center">
   <a href="https://github.com/snowleopardAlexa/cats-videos-app-frontend">
-    <img src="/img/cat-logo.png" alt="Logo" width="80" height="80">
+    <img src="src/img/cat-logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Instagram Clone</h3>
+<h3 align="center">Cats Videos App</h3>
 
   <p align="center">
     This is a front-end for cats-videos-app. For right now you can see multiple videos of cats displayed on the screen and when you click on WATCH NOW button
@@ -57,7 +57,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Cats Videos App
 
-![Alt text](/img/cats-videos-app.png?raw=true "Cats Videos App") https://instagram-clone-snowleopardalexa.vercel.app/
+![Alt text](src/img/cats-videos-app.png?raw=true "Cats Videos App") https://instagram-clone-snowleopardalexa.vercel.app/
 
 ### Built With
 
