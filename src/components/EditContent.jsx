@@ -1,4 +1,33 @@
-const EditContent = ({ setOpenModal }) => {
+import { useState } from "react"
+
+const EditContent = ({ setOpenModal, data, editItem }) => {
+
+  const initialValue = {
+    title: data.title,
+    year: data.year,
+    body: data.body,
+  };
+
+  const [content, setContent] = useState(initialValue);
+
+  // enable edit
+  const handleChange = (e) => {
+    console.log(e.target.value)
+    const { name, value } = e.target
+
+    setContent((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      }
+    })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    editItem(content)
+  }
+
   return (
     <>
       {/* main modal */}
@@ -18,7 +47,7 @@ const EditContent = ({ setOpenModal }) => {
               </h3>
               <button
                 onClick={() => {
-                  setOpenModal(false);
+                  setOpenModal(false)
                 }}
                 type="button"
                 className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -51,7 +80,9 @@ const EditContent = ({ setOpenModal }) => {
                     Title
                   </label>
                   <input
-                
+                    name="title"
+                    value={content.title}
+                    onChange={handleChange}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="title"
                     type="text"
@@ -68,6 +99,9 @@ const EditContent = ({ setOpenModal }) => {
                     Year
                   </label>
                   <input
+                    name="year"
+                    value={content.year}
+                    onChange={handleChange}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                     id="year"
                     type="number"
@@ -84,6 +118,9 @@ const EditContent = ({ setOpenModal }) => {
                     Body
                   </label>
                   <textarea
+                    name="body"
+                    value={content.body}
+                    onChange={handleChange}
                     className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     id="exampleFormControlTextarea1"
                     rows="8"
@@ -97,7 +134,7 @@ const EditContent = ({ setOpenModal }) => {
             <div className="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-300">
               <button
                 onClick={() => {
-                  setOpenModal(false);
+                  setOpenModal(false)
                 }}
                 data-modal-toggle="defaultModal"
                 type="button"
@@ -106,6 +143,7 @@ const EditContent = ({ setOpenModal }) => {
                 Leave now!
               </button>
               <button
+                onClick={handleSubmit}
                 data-modal-toggle="defaultModal"
                 type="button"
                 className="bg-teal-600 hover:bg-red-500 text-white focus:ring-4 focus:outline-none rounded-lg border text-sm font-medium px-5 py-2.5"
@@ -113,11 +151,11 @@ const EditContent = ({ setOpenModal }) => {
                 Save
               </button>
             </div>
-  </div>
-  </div>
-  </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
 
-export default EditContent;
+export default EditContent

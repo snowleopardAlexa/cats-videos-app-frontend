@@ -1,22 +1,55 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
-import catcool from "../img/cat-cool.png";
-import catnotcool from "../img/cat-not-cool.png";
-import videoedit from "../img/video-edit.png";
-import EditContent from "../components/EditContent";
+import { useState, useEffect } from "react"
+import axios from 'axios'
+import { useParams } from "react-router-dom"
+import useFetch from "../hooks/useFetch"
+import catcool from "../img/cat-cool.png"
+import catnotcool from "../img/cat-not-cool.png"
+import videoedit from "../img/video-edit.png"
+import EditContent from "../components/EditContent"
 
 const VideoDetail = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [like, setLike] = useState(true);
-  const [count, setCount] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false)
+  const [like, setLike] = useState(true)
+  const [count, setCount] = useState(0)
+
+  const [catDetail, setCatDetail] = useState()
   const { id } = useParams()
-  const {loading, error, data } = useFetch("http://localhost:1337/videos/" + id)
+  const { data } = useFetch(
+    "http://localhost:1337/videos/" + id
+  );
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error : (</p>
+  console.log(data)
 
-  console.log(data);
+  // edit item
+  const editItem = async (updatedItem) => {
+    console.log("Updated item: ", updatedItem)
+    console.log("ID of video: ", id);
+    try {
+      let res = await fetch("http://localhost:1337/videos/" + id, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: updatedItem.title,
+          year: updatedItem.year,
+          body: updatedItem.body
+        }),
+      });
+      let resJson = await res.json();
+      if (res.status === 200) {
+        console.log(resJson)
+        setCatDetail(resJson)
+      } else {
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  };
+
+ useEffect(()=> {
+   axios.get("http://localhost:1337/videos/" + id)
+     .then(res => setCatDetail(res.data))
+     .catch(err => console.log(err))
+}, [id])
 
   return (
     <>
@@ -30,7 +63,7 @@ const VideoDetail = () => {
             {/* video */}
             <iframe
               className="absolute top-0 left-0 w-full h-full"
-              src={data?.movie?.url}
+              src={catDetail?.movie?.url}
               title="cat-video"
               height="500px"
             ></iframe>
@@ -39,14 +72,14 @@ const VideoDetail = () => {
         <div className="px-6 py-8">
           {/* title */}
           <h2 className="font-bold text-4xl lg:text-5xl mb-2 font-Bebas">
-            {data?.title}
+            {catDetail?.title}
           </h2>
           {/* year */}
           <h3 className="text-gray-700 text-1xl md:text-2xl lg:text-3xl mb-2">
-            {data?.year}
+            {catDetail?.year}
           </h3>
           {/* body */}
-          <p className="text-md md:text-lg lg:text-xl">{data?.body}</p>
+          <p className="text-md md:text-lg lg:text-xl">{catDetail?.body}</p>
         </div>
         <div className="ml-4 mr-4 mt-4 mb-8 flex flex-row justify-center">
           {/* like button */}
@@ -82,10 +115,9 @@ const VideoDetail = () => {
             </p>
             <span>
               <img
-                 onClick={() => {
-                  setModalOpen(true);
+                onClick={() => {
+                  setModalOpen(true)
                 }}
-                data-modal-toggle="defaultModal"
                 className="w-12 md:w-18 mt-4 mx-auto"
                 src={videoedit}
                 alt="cat-like"
@@ -94,9 +126,15 @@ const VideoDetail = () => {
           </div>
         </div>
       </div>
-      {modalOpen && <EditContent setOpenModal={setModalOpen} />}
+      {modalOpen && (
+        <EditContent
+          editItem={editItem}
+          data={catDetail}
+          setOpenModal={setModalOpen}
+        />
+      )}
     </>
   );
 };
 
-export default VideoDetail;
+export default VideoDetail
