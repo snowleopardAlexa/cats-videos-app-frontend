@@ -1,46 +1,32 @@
-// child 
-import { useState } from 'react'
-const EditContent = ({ setOpenModal, data, editItem }) => { 
+import { useState } from "react"
 
-// change state of data
-const initialValue = {
-  title: data.title,
-  year: data.year,
-  body: data.body
-}
+const EditContent = ({ setOpenModal, data, editItem }) => {
 
-const [content, setContent] = useState(initialValue)
+  const initialValue = {
+    title: data.title,
+    year: data.year,
+    body: data.body,
+  };
 
-/*
+  const [content, setContent] = useState(initialValue);
 
-const [formItems, setFormItems] = useState({
-  title: data.title, 
-  year: data.year,
-  body: data.body
-})
-*/
+  // enable edit
+  const handleChange = (e) => {
+    console.log(e.target.value)
+    const { name, value } = e.target
 
+    setContent((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      }
+    })
+  }
 
-// enable EDIT 
-const handleChange = (e) => {
-  console.log(e.target.value)
-  const {name, value} = e.target
-
-  setContent(prev => {
-    return { 
-      ...prev,
-      [name]: value
-    }
-  })
-} 
-
-const [message, setMessage] = useState("")
-
-const handleSubmit = (e) => {
-  e.preventDefault()
-  editItem(content)
-}
-
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    editItem(content)
+  }
 
   return (
     <>
@@ -61,7 +47,7 @@ const handleSubmit = (e) => {
               </h3>
               <button
                 onClick={() => {
-                  setOpenModal(false);
+                  setOpenModal(false)
                 }}
                 type="button"
                 className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -84,26 +70,23 @@ const handleSubmit = (e) => {
             {/* modal body */}
             <div className="p-6 space-y-6">
               {/* edit form */}
-              <form onSubmit={handleSubmit}>
+              <form>
                 {/* title form */}
                 <div className="mb-4">
                   <label
                     className="block text-gray-700 text-sm font-bold mb-2"
                     forhtml="title"
-                    
                   >
                     Title
                   </label>
                   <input
-                    value={content.title}
                     name="title"
+                    value={content.title}
                     onChange={handleChange}
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="title"
                     type="text"
                     placeholder="Title"
-
-      
                   />
                 </div>
 
@@ -135,9 +118,9 @@ const handleSubmit = (e) => {
                     Body
                   </label>
                   <textarea
-                     name="body"
-                     value={content.body}
-                     onChange={handleChange}
+                    name="body"
+                    value={content.body}
+                    onChange={handleChange}
                     className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     id="exampleFormControlTextarea1"
                     rows="8"
@@ -151,7 +134,7 @@ const handleSubmit = (e) => {
             <div className="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-300">
               <button
                 onClick={() => {
-                  setOpenModal(false);
+                  setOpenModal(false)
                 }}
                 data-modal-toggle="defaultModal"
                 type="button"
@@ -160,21 +143,19 @@ const handleSubmit = (e) => {
                 Leave now!
               </button>
               <button
-              
+                onClick={handleSubmit}
                 data-modal-toggle="defaultModal"
                 type="button"
-                data-dismiss="modal"
                 className="bg-teal-600 hover:bg-red-500 text-white focus:ring-4 focus:outline-none rounded-lg border text-sm font-medium px-5 py-2.5"
               >
                 Save
               </button>
-              <div className="message">{message ? <p>{message}</p> : null}</div>
             </div>
-  </div>
-  </div>
-  </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
 
-export default EditContent;
+export default EditContent

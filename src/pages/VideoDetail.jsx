@@ -1,35 +1,28 @@
-import { useState, useEffect } from "react";
-import axios from 'axios';
-import { useParams } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
-import catcool from "../img/cat-cool.png";
-import catnotcool from "../img/cat-not-cool.png";
-import videoedit from "../img/video-edit.png";
-import EditContent from "../components/EditContent";
+import { useState, useEffect } from "react"
+import axios from 'axios'
+import { useParams } from "react-router-dom"
+import useFetch from "../hooks/useFetch"
+import catcool from "../img/cat-cool.png"
+import catnotcool from "../img/cat-not-cool.png"
+import videoedit from "../img/video-edit.png"
+import EditContent from "../components/EditContent"
 
 const VideoDetail = () => {
-  // MODAL
-  const [modalOpen, setModalOpen] = useState(false);
-  // LIKE
-  const [like, setLike] = useState(true);
-  const [count, setCount] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false)
+  const [like, setLike] = useState(true)
+  const [count, setCount] = useState(0)
 
-  // STATE
   const [catDetail, setCatDetail] = useState()
-
-  // API
-  const { id } = useParams();
-  const { loading, error, data } = useFetch(
+  const { id } = useParams()
+  const { data } = useFetch(
     "http://localhost:1337/videos/" + id
   );
 
- 
-
-  console.log(data);
+  console.log(data)
 
   // edit item
   const editItem = async (updatedItem) => {
-    console.log("Updated item: ", updatedItem);
+    console.log("Updated item: ", updatedItem)
     console.log("ID of video: ", id);
     try {
       let res = await fetch("http://localhost:1337/videos/" + id, {
@@ -43,12 +36,12 @@ const VideoDetail = () => {
       });
       let resJson = await res.json();
       if (res.status === 200) {
-        console.log(resJson);
-        setCatDetail(resJson);
+        console.log(resJson)
+        setCatDetail(resJson)
       } else {
       }
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   };
 
@@ -56,14 +49,7 @@ const VideoDetail = () => {
    axios.get("http://localhost:1337/videos/" + id)
      .then(res => setCatDetail(res.data))
      .catch(err => console.log(err))
-}, [])
-
- 
-
-
-
-
-  // 1.
+}, [id])
 
   return (
     <>
@@ -130,9 +116,8 @@ const VideoDetail = () => {
             <span>
               <img
                 onClick={() => {
-                  setModalOpen(true);
+                  setModalOpen(true)
                 }}
-         
                 className="w-12 md:w-18 mt-4 mx-auto"
                 src={videoedit}
                 alt="cat-like"
@@ -152,4 +137,4 @@ const VideoDetail = () => {
   );
 };
 
-export default VideoDetail;
+export default VideoDetail
